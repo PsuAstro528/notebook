@@ -43,6 +43,26 @@ docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work astro528/notebook
 
 Then you can direct your webbrowser to http://127.0.0.1:8888 to access the server.  For security, you will be required to copy and paste a "token" that is displayed in the terminal window before accessing the server.  Note that only files saved in the work directory (or its subdirectories) will remain after you close the Jupyter server and docker.  
 
+ 
+
+### Access Server
+
+The following command will spin up a container with this image and enter you into bash.
+
+```
+docker run -it psuastro528/notebook bash
+```
+
+This can be useful for configuration and testing when you are adapting or building on this repository's Dockerfile for your own purposes.  Alternatively, one can access the shell from the Jupyter notebook server by choosing "New.Terminal".  (The New button is near the upper right.)
+
+### Access Julia REPL
+
+The following command will spin up a temporary container and enter into a Julia REPL.
+
+```
+docker run -it --rm psuastro528/notebook julia
+```
+
 ### Using Docker Compose
 
 [Docker Compose](https://docs.docker.com/compose/) is an alternative to typing out verbose Docker commands each time.  To run this image via Docker Compose, create a `docker-compose.yml` file to the root of your project.
@@ -70,25 +90,7 @@ To start up the notebook via Docker Compose.
 docker-compose up notebook
 ```
 
-This simple example specifies an image avaliable from cloud.docker.com, specifies which storage location on your local computer will appear as persistent storage in the work directory when running the Jupyter notebook server, and specifies which port the server will be accessible through.  
-
-### Access Server
-
-The following command will spin up a container with this image and enter you into bash.
-
-```
-docker run -it psuastro528/notebook bash
-```
-
-This can be useful for configuration and testing when you are adapting or building on this repository's Dockerfile for your own purposes.  Alternatively, one can access the shell from the Jupyter notebook server by choosing "New.Terminal".  (The New button is near the upper right.)
-
-### Access Julia REPL
-
-The following command will spin up a temporary container and enter into a Julia REPL.
-
-```
-docker run -it --rm psuastro528/notebook julia
-```
+This simple example specifies an image avaliable from cloud.docker.com, specifies which storage location on your local computer will appear as persistent storage in the work directory when running the Jupyter notebook server, and specifies which port the server will be accessible through. 
 
 ## Development
 
