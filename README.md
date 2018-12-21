@@ -38,23 +38,24 @@ This simple example specifies an image avaliable from cloud.docker.com, specifie
 
 ### Access Server
 
-The following command will spin up a container with this image and enter you into bash. 
+The following command will spin up a container with this image and enter you into bash.
 
 ```
-docker-compose run --rm notebook bash
+docker run -it psuastro528/notebook bash
 ```
+
 This can be useful for configuration and testing when you are adapting or building on this repository's Dockerfile for your own purposes.  Alternatively, one can access the shell from the Jupyter notebook server by choosing "New.Terminal".  (The New button is near the upper right.)
 
+### Access Julia REPL
+
+The following command will spin up a temporary container and enter into a Julia REPL.
+
+```
+docker run -it --rm psuastro528/notebook julia
+```
 
 ## Development
 
 You can further customize this container/image by editing the Dockerfile.  
 To add new packages to the image add shell commands using the `RUN` prefix in `Dockerfile`.
 It's easiest to follow the examples here.
-
-
-### Mike: Can you explain the point of the following?
-docker command
-```
-docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work astro528/notebook
-```
