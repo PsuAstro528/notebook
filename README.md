@@ -15,6 +15,24 @@ for a full list of notebooks available.
 ### Install Docker
 First, you will need to install [Docker](https://docs.docker.com/get-started/).  Make sure `docker run hello-world` works before proceeding.
 
+### Access Server
+
+The following command will spin up a container with this image and enter you into bash.
+
+```
+docker run -it --rm psuastro528/notebook bash
+```
+
+This can be useful for configuration and testing when you are adapting or building on this repository's Dockerfile for your own purposes.  Alternatively, one can access the shell from the Jupyter notebook server by choosing "New.Terminal".  (The New button is near the upper right.)
+
+### Access Julia REPL
+
+The following command will spin up a temporary container and enter into a Julia REPL.
+
+```
+docker run -it --rm psuastro528/notebook julia
+```
+
 ### Jupyter Notebook
 
 The following command will start the Jupyter notebook server and bind it to `localhost:8888`
