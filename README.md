@@ -38,7 +38,7 @@ docker run -it --rm psuastro528/notebook julia
 The following command will start the Jupyter notebook server and bind it to `localhost:8888`
 
 ```
-docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work astro528/notebook
+docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work psuastro528/notebook
 ```
 
 Then you can direct your webbrowser to http://127.0.0.1:8888 to access the server.  For security, you will be required to copy and paste a "token" that is displayed in the terminal window before accessing the server.  Note that only files saved in the work directory (or its subdirectories) will remain after you close the Jupyter server and docker.  
@@ -74,10 +74,10 @@ touch docker-compose.yml
 When running the `docker-compose` command, some configuration parameters are specified by the file docker-compose.  Add the following configuration to your docker-compose.yml file.
 
 ```yml
-version: "3"
+version: '3'
 services:
   notebook:
-    image: astro528/notebook
+    image: psuastro528/notebook
     volumes:
       - .:/home/jovyan/work
     ports:
